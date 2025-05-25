@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Todo Summary Assistant
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+This project is a full-stack Todo app where users can create, update, delete todos, and generate a summary of all pending todos using OpenAI's GPT-3.5 Turbo model. The summary is then posted to a Slack channel using Slack Incoming Webhooks.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Frontend: React (Create React App)
+- Backend: Node.js with Express
+- Database: Supabase (PostgreSQL)
+- LLM Integration: OpenAI GPT-3.5 Turbo API
+- Slack Integration: Slack Incoming Webhooks
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Add, edit, delete, and view todos.
+- Generate a meaningful summary of todos via OpenAI.
+- Send the summary directly to a Slack channel.
+- Shows success/failure messages for Slack operations.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setup Instructions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Go to the `backend` folder:  
+   ```bash
+   cd backend
+Create .env file with these variables:
 
-### `npm run eject`
+ini
+Copy
+Edit
+SUPABASE_URL=your_supabase_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
+OPENAI_API_KEY=your_openai_api_key
+SLACK_WEBHOOK_URL=your_slack_webhook_url
+Install dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+bash
+Copy
+Edit
+npm install
+Start the server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+bash
+Copy
+Edit
+node app.js
+Backend runs at: http://localhost:4000
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Frontend
+Go to the frontend folder:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+bash
+Copy
+Edit
+cd frontend
+Install dependencies:
 
-## Learn More
+bash
+Copy
+Edit
+npm install
+Start the frontend app:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+bash
+Copy
+Edit
+npm start
+Open the app in your browser: http://localhost:3000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+How to Use
+Manage your todos in the UI.
 
-### Code Splitting
+Click "Summarize and Send to Slack" to generate a summary.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Check your configured Slack channel for the summary message.
 
-### Analyzing the Bundle Size
+Configuration
+Slack Webhook: Set up Incoming Webhook in Slack and add URL to .env.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+OpenAI API: Get API key from https://platform.openai.com and add to .env.
 
-### Making a Progressive Web App
+Supabase: Create a project and todos table with columns id (int, PK) and text (string).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Design Decisions
+Supabase used for easy DB management and hosting.
 
-### Advanced Configuration
+OpenAI for real LLM summarization.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Slack Webhooks for simple Slack integration.
 
-### Deployment
+React + Node.js for frontend/backend separation.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contact
+For questions, contact: vemanthkumar76@gmail.com
